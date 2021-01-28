@@ -1,0 +1,54 @@
+
+.Wrapper {
+    /*
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+*/
+    position:relative;
+    margin:0 auto;
+    width:50%;
+}
+
+.ImageWrapper {
+/*    display:inline-flex;*/
+    max-height: 400px;
+    overflow: hidden;
+}
+
+.Item {
+    object-fit: contain;
+    overflow: auto;
+    width:100%;
+}
+
+.currentImage {
+    overflow:hidden;
+    visibility: visible;
+}
+
+.Arrow {
+    position:absolute;
+    top:35%;
+    transform:translateY(-50%);
+    padding:16px 8px;
+    z-index:1000;
+}
+
+.Left {
+    left:0;
+}
+
+.Right {
+    right:0;
+}
+
+.ThumbnailsWrapper {
+    margin-top:10px;
+}
+
+.Thumbnails {
+    width:30%;
+    max-height:160px;
+    cursor:pointer;
+}
