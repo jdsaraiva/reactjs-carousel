@@ -1,25 +1,35 @@
 
 .Wrapper {
-    /*
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-*/
     position:relative;
     margin:0 auto;
     width:50%;
 }
 
 .ImageWrapper {
-/*    display:inline-flex;*/
-    max-height: 400px;
-    overflow: hidden;
+    position:relative;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .Item {
-    object-fit: contain;
+    max-height: 100%;
+    min-width: 100%;
+    vertical-align: bottom;
+
+    min-height: 450px;
     overflow: auto;
     width:100%;
+
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+
+    transition: background-image 0.5s ease-in;
+}
+
+.Item.Hidden {
+    transition: background-image 0.5s ease-in;
+
 }
 
 .currentImage {
@@ -29,18 +39,27 @@
 
 .Arrow {
     position:absolute;
-    top:35%;
-    transform:translateY(-50%);
-    padding:16px 8px;
+    height:30px;
+    width:30px;
+    top:calc( 50% - 15px );
+    padding:5px;
+
+    background-color:rgba(255, 255, 255, 0.8);
+    border:none;
     z-index:1000;
 }
 
+.Arrow:hover {
+    cursor:pointer;
+    background-color:rgba(255, 255, 255, 1);
+}
+
 .Left {
-    left:0;
+    left:5px;
 }
 
 .Right {
-    right:0;
+    right:5px;
 }
 
 .ThumbnailsWrapper {
@@ -49,6 +68,6 @@
 
 .Thumbnails {
     width:30%;
-    max-height:160px;
+    max-height:150px;
     cursor:pointer;
 }

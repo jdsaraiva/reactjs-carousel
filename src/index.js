@@ -31,9 +31,9 @@ const App = () => {
             {
                 "id": 5,
                 "orig_src": "src/imgs/5.jpg",
-                "thumb_src": "3_thumb.jpg",
-                "description": "Hello from image 2!"
-            },
+                "description": "Hello from image 5!"
+            }
+
     ])
 
     return (

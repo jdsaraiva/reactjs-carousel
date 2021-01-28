@@ -4,10 +4,7 @@ import React, { useState } from "react";
 const Carousel = ({ images }) => {
 
     const [index, setImages] = useState(0);
-
-    // TODO Animation, fade in
-    // No instagram existe uma transição rápida para o lado e a imagem é trocada uma pela outra -
-    // Mobile n tem setas
+    const [isActive, setActive] = useState("false");
 
     const previousImage = () => {
         const nextIndex = index - 1;
@@ -19,11 +16,17 @@ const Carousel = ({ images }) => {
 
     };
 
+    // Use CSS to have smooth transitions
+    const itemVisible = {
+        backgroundImage: `url(${images[index].orig_src})`
+    };
+
     const nextImage = () => {
 
-        //alert(index + 2 + " " + images.length);
+        // Item AddClass Item.hidden
+        setActive(!isActive);
 
-        if (index <= images.length)
+        if (index <= images.length) 
             setImages((index + 1) % images.length);
 
     };
@@ -41,7 +44,7 @@ const Carousel = ({ images }) => {
 
                 <div className="ImageWrapper">
                     <button className="Arrow Left Desktop" onClick={previousImage}>{"<"}</button>
-                    <img className="Item" src={images[index].orig_src} alt={images[index].description} />
+                    <div className="Item" style={itemVisible}></div>
                     <button className="Arrow Right Desktop" onClick={nextImage}>{">"}</button>
                 </div>
 
