@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSwipeable} from 'react-swipeable'
 
 // takes in images as props
 const Carousel = ({ images }) => {
@@ -33,10 +34,21 @@ const Carousel = ({ images }) => {
 
     const gotoImage = (index) => {
 
-        // TODO Ou seja, o indice n deva mexer apenas mudar o src do .Item ?
         setImages(index);
 
     };
+
+    // Change image according the swipe direction
+    const handlers = useSwipeable({ onSwiped: (eventData) => {
+
+            // If value is negative slide to the left slide showing the following image
+            if ( eventData.deltaX < 0 )
+                nextImage();
+            else
+                previousImage();
+
+    } })
+
 
     return (
         images.length > 0 && (
@@ -44,7 +56,7 @@ const Carousel = ({ images }) => {
 
                 <div className="ImageWrapper">
                     <button className="Arrow Left Desktop" onClick={previousImage}>{"<"}</button>
-                    <div className="Item" style={itemVisible}></div>
+                    <div className="Item" style={itemVisible} {...handlers}  />
                     <button className="Arrow Right Desktop" onClick={nextImage}>{">"}</button>
                 </div>
 
